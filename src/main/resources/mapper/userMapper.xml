@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.tickle.dao.UserDAO">
+
+	<select id="login" parameterType="com.tickle.dto.User" resultType="com.tickle.dto.User">
+		select * from
+			user where id=#{id} and pw=#{pw}			
+	</select>
+	
+	
+</mapper>

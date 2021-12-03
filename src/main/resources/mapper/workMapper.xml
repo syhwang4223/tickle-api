@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.tickle.dao.WorkDAO">
+
+	<select id="getAllWorks" resultType="com.tickle.dto.Work">
+		SELECT * 
+			FROM work
+	</select>
+	
+	<select id="getWork" parameterType="int" resultType="com.tickle.dto.Work">
+		SELECT * FROM 
+			work WHERE workID = #{workID}
+	</select>
+	
+	<insert id="createNewWork" parameterType="com.tickle.dto.Work">
+		insert into 
+			work (employerID, title, description, pay, category, dueDate) values (#{employerID},#{title},#{description},#{pay},#{category},#{dueDate});
+	</insert>
+	
+	<update id="requestApplication">
+		update work
+			set employeeID = #{employeeID} and workStatus = 3
+			where workId = #{workID}	
+	</update>
+	
+	<select id="getRegisteredWorks" resultType="com.tickle.dto.Work">
+		select * from
+			work where employerID = #{uID}
+	</select>
+	
+	<select id="getRequestedWorks" resultType="com.tickle.dto.Work">
+		select * from
+			work where employeeID = #{uID}
+	</select>
+	
+	
+</mapper>
