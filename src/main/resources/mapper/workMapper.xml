@@ -21,7 +21,7 @@
 	<update id="requestApplication">
 		update work
 			set employeeID = #{employeeID} and workStatus = 3
-			where workId = #{workID}	
+			where workID = #{workID}	
 	</update>
 	
 	<select id="getRegisteredWorks" resultType="com.tickle.dto.Work">

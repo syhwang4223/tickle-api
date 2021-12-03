@@ -46,10 +46,9 @@ public class MainController {
 	// 작업 등록
 	@PostMapping(path = "/work-form")
 	@CrossOrigin(origins = "*", allowedHeaders = "*")
-	public Work createNewWork(@RequestBody Work work, HttpServletRequest req) {
-		HttpSession session = req.getSession();
-		User login = (User) session.getAttribute("loginUser");
-		work.setEmployerID(login.getuID());
+	public Work createNewWork(@RequestBody Work work) {
+
+		work.setEmployerID(1);
 		workModel.createNewWork(work);
 		return work;
 	}
@@ -57,13 +56,10 @@ public class MainController {
 	// 작업 신청?
 	@PutMapping(path = "/request/{workID}")
 	@CrossOrigin(origins = "*", allowedHeaders = "*")
-	public int requestApplication(@PathVariable Integer workID, HttpServletRequest req) {
-
-		HttpSession session = req.getSession();
-		User login = (User) session.getAttribute("loginUser");
+	public int requestApplication(@PathVariable Integer workID) {
 
 		Work work = workModel.getWork(workID);
-		work.setEmployeeID(login.getuID());
+		work.setEmployeeID(2);
 		work.setWorkStatus(3);
 
 		int requestSuccess = workModel.requestApplication(workID);
