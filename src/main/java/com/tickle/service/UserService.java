@@ -6,4 +6,6 @@ public interface UserService {
 
 	User login(User user);
 	
+	String getUserName(Integer uID);
+	
 }

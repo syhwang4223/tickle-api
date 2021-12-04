@@ -8,5 +8,10 @@
 			user where id=#{id} and pw=#{pw}			
 	</select>
 	
+	<select id="getUserName" parameterType="int" resultType="String">
+		select name from
+			user where uID=#{uID}			
+	</select>
+	
 	
 </mapper>

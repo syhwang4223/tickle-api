@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.tickle.dao.CheckDAO">
+
+	<select id="getCheckList" parameterType="int" resultType="com.tickle.dto.Check">
+		select * from
+			ck where workID=#{workID}			
+	</select>
+	
+	<select id="getCheck" parameterType="int" resultType="com.tickle.dto.Check">
+		select * from
+			ck where stepID=#{stepID}			
+	</select>
+
+	<insert id="createCheck" parameterType="com.tickle.dto.Check">
+		insert into 
+			ck (title, description, workID) values (#{title},#{description},#{workID});
+	</insert>
+	
+	<update id="checkDone" parameterType="int">
+		update ck
+			set isChecked=#{isChecked}
+			where stepID = #{stepID}
+	</update>
+	
+</mapper>

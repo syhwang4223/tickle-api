@@ -22,4 +22,9 @@ public interface WorkDAO {
 
 	List<Work> getRequestedWorks(Integer uID);
 	
+	int acceptApplication(Integer workID);
+	
+	int refuseApplication(Integer workID);
+	
+	int setWorkStatus(Integer workStatus, Integer workID);
 }

@@ -18,10 +18,28 @@
 			work (employerID, title, description, pay, category, dueDate) values (#{employerID},#{title},#{description},#{pay},#{category},#{dueDate});
 	</insert>
 	
-	<update id="requestApplication">
+	<update id="requestApplication" parameterType="int">
 		update work
-			set employeeID = #{employeeID} and workStatus = 3
+			set employeeID = 2, workStatus = 3
 			where workID = #{workID}	
+	</update>
+	
+	<update id="acceptApplication" parameterType="int">
+		update work
+			set workStatus = 1
+			where workID = #{workID}	
+	</update>
+	
+	<update id="refuseApplication" parameterType="int">
+		update work
+			set workStatus = 0, employeeID = NULL
+			where workID = #{workID}	
+	</update>
+	
+	<update id="setWorkStatus" parameterType="int">
+		update work
+			set workStatus=#{workStatus}
+			where workID = #{workID}
 	</update>
 	
 	<select id="getRegisteredWorks" resultType="com.tickle.dto.Work">

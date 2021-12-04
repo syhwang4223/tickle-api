@@ -15,8 +15,14 @@ public interface WorkService {
 
 	int requestApplication(Integer workID);
 	
+	int refuseApplication(Integer workID);
+	
 	List<Work> getRegisterdWorks(Integer uID);
 
 	List<Work> getRequestedWorks(Integer uID);
+	
+	int acceptApplication(Integer workID);
+	
+	int setWorkStatus(Integer workStatus, Integer workID);
 
 }

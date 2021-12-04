@@ -34,6 +34,7 @@ public class WorkServiceImpl implements WorkService {
 
 	@Override
 	public int requestApplication(Integer workID) {
+		
 		return dao.requestApplication(workID);
 	}
 
@@ -46,5 +47,22 @@ public class WorkServiceImpl implements WorkService {
 	public List<Work> getRequestedWorks(Integer uID) {
 		return dao.getRequestedWorks(uID);
 	}
+
+	@Override
+	public int acceptApplication(Integer workID) {
+		return dao.acceptApplication(workID);
+	}
+
+	@Override
+	public int refuseApplication(Integer workID) {
+		return dao.refuseApplication(workID);
+	}
+
+	@Override
+	public int setWorkStatus(Integer workStatus, Integer workID) {
+		return dao.setWorkStatus(workStatus, workID);
+	}
+
+	
 
 }

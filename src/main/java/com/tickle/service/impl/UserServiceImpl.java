@@ -18,6 +18,10 @@ public class UserServiceImpl implements UserService {
 	public User login(User user) {
 		return dao.login(user);
 	}
+	@Override
+	public String getUserName(Integer uID) {
+		return dao.getUserName(uID);
+	}
 	
 
 }
