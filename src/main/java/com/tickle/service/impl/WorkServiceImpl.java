@@ -27,8 +27,8 @@ public class WorkServiceImpl implements WorkService {
 	}
 
 	@Override
-	public void createNewWork(Work work) {
-		dao.createNewWork(work);
+	public int createNewWork(Work work) {
+		return dao.createNewWork(work);
 		
 	}
 

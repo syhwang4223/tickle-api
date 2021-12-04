@@ -11,7 +11,7 @@ public interface WorkService {
 	
 	Work getWork(Integer workID);
 
-	void createNewWork(Work work);
+	int createNewWork(Work work);
 
 	int requestApplication(Integer workID);
 	

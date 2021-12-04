@@ -14,7 +14,7 @@ public interface WorkDAO {
 
 	Work getWork(Integer workID);
 
-	void createNewWork(Work work);
+	int createNewWork(Work work);
 
 	int requestApplication(Integer workID);
 	

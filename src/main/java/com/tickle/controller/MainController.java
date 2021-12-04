@@ -1,5 +1,7 @@
 package com.tickle.controller;
 
+import static org.hamcrest.CoreMatchers.instanceOf;
+
 import java.util.List;
 
 import javax.servlet.http.HttpServletRequest;
@@ -63,13 +65,14 @@ public class MainController {
 		int success = checkModel.checkDone(stepID);
 		return success;
 	}
+	/*
 	// 체크 등록
 	@PostMapping(path="check-form")
 	@CrossOrigin(origins = "*", allowedHeaders = "*")
 	public Check createCheck(@RequestBody Check check) {
 		checkModel.createCheck(check);
 		return check;
-	}
+	}*/
 	
 	// 하나의 작업 정보 열람
 	@CrossOrigin(origins = "*", allowedHeaders = "*")
@@ -85,6 +88,15 @@ public class MainController {
 
 		work.setEmployerID(1);
 		workModel.createNewWork(work);
+		Check[] checklist = work.getChecklist();
+		
+		for (int i = 0;i<3;i++) {
+			checklist[i].setWorkID(work.getWorkID());
+			checkModel.createCheck(checklist[i]);
+		}
+
+		
+		
 		return work;
 	}
 

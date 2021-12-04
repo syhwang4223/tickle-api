@@ -13,7 +13,7 @@
 			work WHERE workID = #{workID}
 	</select>
 	
-	<insert id="createNewWork" parameterType="com.tickle.dto.Work">
+	<insert id="createNewWork" parameterType="com.tickle.dto.Work" useGeneratedKeys="true" keyProperty="workID">
 		insert into 
 			work (employerID, title, description, pay, category, dueDate) values (#{employerID},#{title},#{description},#{pay},#{category},#{dueDate});
 	</insert>

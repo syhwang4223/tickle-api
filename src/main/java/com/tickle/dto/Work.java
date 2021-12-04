@@ -15,6 +15,16 @@ public class Work {
 	private double pay;
 	private Date dueDate;
 	
+	private Check checklist[] = new Check[3];
+	
+	public Check[] getChecklist() {
+		return checklist;
+	}
+
+	public void setChecklist(Check[] checklist) {
+		this.checklist = checklist;
+	}
+
 	public Work() {
 		super();
 	}
